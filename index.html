@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Nosso Amor</title>
   <style>
     body {
@@ -10,30 +10,65 @@
       background-color: #fff0f5;
       font-family: 'Segoe UI', sans-serif;
       text-align: center;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-    }
-
-    h1 {
-      margin-top: 20px;
       color: #c71585;
     }
 
+    .container {
+      max-width: 320px;
+      margin: 40px auto;
+      padding: 10px;
+      background: #ffe4f1;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #d87093;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    /* Coração que "recorta" a foto */
+    .heart-frame {
+      position: relative;
+      width: 250px;
+      height: 225px;
+      margin: 0 auto 15px;
+      background: url('foto.jpeg') no-repeat center center/cover;
+      clip-path: polygon(
+        50% 0%,
+        84% 12%,
+        100% 38%,
+        100% 65%,
+        50% 100%,
+        0% 65%,
+        0% 38%,
+        16% 12%
+      );
+      box-shadow: 0 0 15px #c71585aa;
+      transition: transform 0.3s ease;
+    }
+    .heart-frame:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #c71585cc;
+    }
+
     #contador {
-      font-size: 24px;
-      margin-top: 10px;
+      font-size: 20px;
+      font-weight: bold;
       color: #8b008b;
+      margin-top: 0;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Estamos juntos há:</h1>
-  <div id="contador">Carregando...</div>
-  <img src="foto.jpeg" alt="Foto do casal">
+  <div class="container">
+    <h1>Dias desde que te conheci ❤️</h1>
+
+    <div class="heart-frame"></div>
+
+    <div id="contador">Carregando...</div>
+  </div>
 
   <script>
     const inicio = new Date("2016-07-27T14:00:00");
