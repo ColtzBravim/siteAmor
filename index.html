@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nosso Amor</title>
   <style>
     body {
@@ -30,7 +31,10 @@
 
     img {
       width: 100%;
+      height: auto;
+      max-height: 400px;
       border-radius: 10px;
+      object-fit: contain;
       box-shadow: 0 0 15px #c71585aa;
       margin-bottom: 15px;
     }
@@ -52,13 +56,25 @@
       font-size: 16px;
     }
 
+    button {
+      padding: 10px 20px;
+      background-color: #c71585;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
     audio {
       display: none;
     }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
+
+  <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg" />
     Seu navegador não suporta áudio.
   </audio>
@@ -70,9 +86,11 @@
 
     <div id="contador">Carregando...</div>
 
+    <button onclick="tocarMusica()">Tocar Música 🎵</button>
+
     <div class="mensagem">
       Obrigado por ter me dado a chance de beijar sua boca neste dia, 
-eu fui muito mais feliz depois disso ❤️<br />
+      eu fui muito mais feliz depois disso ❤️<br />
       Talvez eu não diga o suficiente, mas eu amo você mais do que você possa imaginar!
     </div>
   </div>
@@ -114,6 +132,14 @@ eu fui muito mais feliz depois disso ❤️<br />
 
       document.getElementById('contador').innerText =
         `${anos} anos, ${meses} meses, ${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    function tocarMusica() {
+      const audio = document.getElementById("musica");
+      audio.volume = 0.7;
+      audio.play().catch(err => {
+        alert("Não foi possível tocar a música automaticamente. Tente novamente.");
+      });
     }
 
     setInterval(atualizarContador, 1000);
