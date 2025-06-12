@@ -14,7 +14,7 @@
     }
 
     .container {
-      max-width: 320px;
+      max-width: 360px;
       margin: 40px auto;
       padding: 10px;
       background: #ffe4f1;
@@ -23,51 +23,58 @@
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin-top: 10px;
       font-weight: normal;
+      font-size: 20px;
     }
 
-    /* Coração que "recorta" a foto */
-    .heart-frame {
-      position: relative;
-      width: 250px;
-      height: 225px;
-      margin: 0 auto 15px;
-      background: url('foto.jpeg') no-repeat center center/cover;
-      clip-path: polygon(
-        50% 0%,
-        84% 12%,
-        100% 38%,
-        100% 65%,
-        50% 100%,
-        0% 65%,
-        0% 38%,
-        16% 12%
-      );
+    img {
+      width: 100%;
+      border-radius: 10px;
       box-shadow: 0 0 15px #c71585aa;
-      transition: transform 0.3s ease;
-    }
-    .heart-frame:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #c71585cc;
+      margin-bottom: 15px;
     }
 
     #contador {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
       color: #8b008b;
-      margin-top: 0;
-      margin-bottom: 20px;
+      margin: 10px 0 20px;
+    }
+
+    .mensagem {
+      background-color: #fff;
+      color: #8b008b;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #d87093;
+      font-size: 16px;
+    }
+
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Dias desde que te conheci ❤️</h1>
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg" />
+    Seu navegador não suporta áudio.
+  </audio>
 
-    <div class="heart-frame"></div>
+  <div class="container">
+    <h1>Tempo desde que conheci o amor da minha vida</h1>
+
+    <img src="foto.png" alt="Foto com moldura" />
 
     <div id="contador">Carregando...</div>
+
+    <div class="mensagem">
+      Obrigado por ter me dado a chance de beijar sua boca neste dia, 
+eu fui muito mais feliz depois disso ❤️<br />
+      Talvez eu não diga o suficiente, mas eu amo você mais do que você possa imaginar)
+    </div>
   </div>
 
   <script>
